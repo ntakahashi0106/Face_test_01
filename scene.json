@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "name": "FaceSlime",
+  "ar": {
+    "mode": "face-tracking",
+    "primaryTargetId": null,
+    "photoFrame": {
+      "enabled": false,
+      "frameAssetId": null
+    },
+    "splash": {
+      "enabled": false,
+      "mode": "standard",
+      "title": "",
+      "subtitle": "",
+      "logoAssetId": null,
+      "backgroundColor": "#111418",
+      "textColor": "#ffffff",
+      "startMode": "tap",
+      "customHtml": "",
+      "customCss": "",
+      "customJs": ""
+    },
+    "legalFooter": {
+      "termsUrl": "",
+      "privacyUrl": ""
+    }
+  },
+  "imageTargets": [],
+  "mediaAssets": [
+    {
+      "id": "9cb086d5-a4a7-483f-b15e-72b027d885a4",
+      "name": "slim_jump",
+      "kind": "lottie",
+      "mime": "application/json",
+      "byteLength": 35894,
+      "url": "assets/media/slim_jump.json",
+      "folderId": null
+    }
+  ],
+  "mediaFolders": [],
+  "objects": [
+    {
+      "id": "972be6dc-6eb4-4b0e-8486-8a9f421664f0",
+      "name": "slim_jump",
+      "type": "lottie",
+      "parentId": null,
+      "transform": {
+        "position": [
+          0,
+          0.5,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "visible": true,
+      "geometryRef": "9cb086d5-a4a7-483f-b15e-72b027d885a4",
+      "components": {
+        "faceAnchor": {
+          "attachPoint": "noseTip"
+        }
+      }
+    }
+  ]
+}
