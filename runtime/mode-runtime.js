@@ -149,6 +149,12 @@ export async function start(options = {}) {
   if (!XR8.FaceController && typeof XR8.loadChunk === 'function') {
     await XR8.loadChunk('face');
   }
+  // xr.js本体のカメラ処理がフェイスセッションでも
+  // XR8.XrController.updateCameraProjectionMatrix を無条件に参照するため、
+  // XrController を含む slam チャンクもロードしておく（無いと起動時にクラッシュする）
+  if (!XR8.XrController && typeof XR8.loadChunk === 'function') {
+    await XR8.loadChunk('slam');
+  }
 
   // 再起動（エディタプレビューの開き直し等）に備えて前回のモジュールを破棄する
   XR8.clearCameraPipelineModules?.();
