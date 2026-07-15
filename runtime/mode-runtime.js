@@ -28,6 +28,7 @@ import {
   setupFullWindowCanvas,
   teardownFullWindowCanvas,
 } from './fullwindow-canvas.js';
+import { createErrorDetailModule } from './error-display.js';
 
 function scenePipelineModule(doc, THREE, built, canvas, splash) {
   const { roots, byId, mixers } = built;
@@ -170,11 +171,14 @@ export async function start(options = {}) {
     XR8.Threejs.pipelineModule(),
     ...(XRExtras
       ? [
+          // 非対応ブラウザ（アプリ内WebView等）では「ブラウザで開いてください」画面を出す
+          ...(XRExtras.AlmostThere ? [XRExtras.AlmostThere.pipelineModule()] : []),
           XRExtras.FullWindowCanvas.pipelineModule(),
           XRExtras.Loading.pipelineModule(),
           XRExtras.RuntimeError.pipelineModule(),
         ]
       : []),
+    createErrorDetailModule(),
     ...photo.pipelineModules,
     scenePipelineModule(doc, THREE, built, canvas, splash),
   ]);
